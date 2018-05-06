@@ -1,0 +1,12 @@
+{
+	"discord":{
+		"prefijo": "&",
+		"token": ""
+	},
+	"api":{
+		"provider": "YH",
+		"key": {
+			"OWM": ""
+		}
+	}
+}
