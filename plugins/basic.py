@@ -5,7 +5,7 @@ import urllib
 
 import discord
 from discord.ext import commands as cmd
-
+from discord.ext.commands import when_mentioned_or
 from utils import config
 from utils.helpers import clima_owm, clima_yh
 
@@ -14,11 +14,12 @@ class Info:
         self.bot = bot
 
     @cmd.command(name='8ball',
+                    prefix=when_mentioned_or("&"),
                     description="Responde una pregunta de si/no.",
                     brief="Respuestas pendejas a preguntas pendejas",
                     aliases=['eight_ball', 'eightball', '8-ball', 'bola8', 'bolaocho'],
                     pass_context=True)
-    async def eight_ball(self, ctx):
+    async def eight_ball(self, ctx, *, pregunta=None):
         possible_responses = [
             'No se arma compa',
             'Chicle y pega',
@@ -27,10 +28,11 @@ class Info:
             'Awebo prro!',
             'A lo mejor si se hace pero no esperes parado',
         ]
-        if ctx.invoked_subcommand is None:
+        print(pregunta)
+        if not pregunta:
           await self.bot.say("Namames, ¡preguntame algo!")
         else:
-          await self.bot.say(random.choice(possible_responses) + ", " + ctx.message.author.mention)
+          await self.bot.say(":8ball: **| " + random.choice(possible_responses) + ", " + ctx.message.author.mention+ "**")
           
 
 
