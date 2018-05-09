@@ -12,7 +12,7 @@ from discord.ext.commands import Bot
 from utils import config
 
 # Plugins se inicializan en run()
-plugins = ["plugins.basic", "plugins.otaku"]
+plugins = ["plugins.basic", "plugins.otaku", "plugins.interact"]
 
 
 class Alamo(Bot):
